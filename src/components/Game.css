@@ -1,0 +1,96 @@
+.game {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #e0f7e9, #e0f0ff);
+  min-height: 100vh;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.game-board {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.game-info {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  min-width: 200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-info h2 {
+  margin-bottom: 10px;
+  color: #00695c;
+}
+
+/* Board */
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #0277bd;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  gap: 8px;
+}
+
+/* Square */
+.square {
+  width: 60px;
+  height: 60px;
+  font-size: 22px;
+  font-weight: bold;
+  border: 2px solid #0288d1;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: background 0.2s;
+}
+
+.square:hover {
+  background-color: #e0f2f1;
+}
+
+.square:focus {
+  outline: none;
+}
+
+/* Color X and O differently */
+.square:contains("X") {
+  color: #2e7d32; /* Green */
+}
+
+.square:contains("O") {
+  color: #0277bd; /* Blue */
+}
+
+/* History */
+.history-btn {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #43a047;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.history-btn:hover {
+  background-color: #1e88e5;
+}
