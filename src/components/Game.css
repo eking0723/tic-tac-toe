@@ -5,6 +5,7 @@
   padding: 20px;
   background: linear-gradient(135deg, #e0f7e9, #e0f0ff);
   min-height: 100vh;
+  width: 100vw;
   justify-content: center;
   align-items: flex-start;
 }
@@ -27,6 +28,8 @@
 .game-info h2 {
   margin-bottom: 10px;
   color: #00695c;
+  text-align: center;
+  justify-content: center;
 }
 
 /* Board */
@@ -55,6 +58,8 @@
   height: 60px;
   font-size: 22px;
   font-weight: bold;
+  text-align: center;
+  color: #00695c;
   border: 2px solid #0288d1;
   border-radius: 6px;
   cursor: pointer;
@@ -70,16 +75,6 @@
   outline: none;
 }
 
-/* Color X and O differently */
-.square:contains("X") {
-  color: #2e7d32; /* Green */
-}
-
-.square:contains("O") {
-  color: #0277bd; /* Blue */
-}
-
-/* History */
 .history-btn {
   margin-top: 5px;
   padding: 5px 10px;
