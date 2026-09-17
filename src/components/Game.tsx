@@ -19,6 +19,11 @@ export default function Game() {
     setCurrentMove(nextMove);
   }
 
+  function resetGame() {
+    setHistory([Array(9).fill(null)]);
+    setCurrentMove(0);
+  }
+
   const moves = history.map((_, move) => {
     const description = move > 0 ? `Go to move #${move}` : "Go to game start";
     return (
@@ -32,13 +37,30 @@ export default function Game() {
 
   return (
     <div className="game">
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>
-      <div className="game-info">
-        <h2>Game History</h2>
-        <ol>{moves}</ol>
-      </div>
+      <main className="game-shell">
+        <header className="game-header">
+          <p className="eyebrow">Classic board game</p>
+          <h1>Tic-Tac-Toe</h1>
+          <p className="game-subtitle">Take turns, make three in a row, and claim the win.</p>
+        </header>
+
+        <section className="game-content" aria-label="Tic-Tac-Toe game">
+          <div className="game-board">
+            <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+            <button className="reset-btn" type="button" onClick={resetGame}>
+              Reset game
+            </button>
+          </div>
+
+          <aside className="game-info" aria-label="Game history">
+            <div className="history-heading">
+              <h2>Game history</h2>
+              <span>{history.length - 1} moves</span>
+            </div>
+            <ol className="history-list">{moves}</ol>
+          </aside>
+        </section>
+      </main>
     </div>
   );
 }

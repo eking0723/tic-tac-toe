@@ -18,16 +18,18 @@ export default function Board({ xIsNext, squares, onPlay }: BoardProps) {
   }
 
   const winner = calculateWinner(squares);
-  const status = winner
-    ? `Winner: ${winner}`
-    : `Next Player: ${xIsNext ? "X" : "O"}`;
+  const isDraw = !winner && squares.every(Boolean);
+  const status = winner ? `Player ${winner} wins!` : isDraw ? "It’s a draw!" : `Player ${xIsNext ? "X" : "O"}'s turn`;
 
   return (
     <div className="board">
-      <div className="status">{status}</div>
+      <div className={`status ${winner ? "winner" : isDraw ? "draw" : ""}`} role="status" aria-live="polite">
+        {winner ? <span className="status-icon" aria-hidden="true">🏆</span> : null}
+        <span>{status}</span>
+      </div>
       <div className="board-grid">
         {squares.map((square, i) => (
-          <Square key={i} value={square} onSquareClick={() => handleClick(i)} />
+          <Square key={i} value={square} disabled={Boolean(winner || isDraw || square)} onSquareClick={() => handleClick(i)} />
         ))}
       </div>
     </div>
